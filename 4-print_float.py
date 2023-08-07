@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-python3 "$PYFILE"
+number = 3.14159
