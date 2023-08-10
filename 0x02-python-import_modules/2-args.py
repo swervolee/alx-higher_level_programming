@@ -1,12 +1,17 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import sys
-    l = len(sys.argv)
-    if (l == 2):
-        print("{} arguement".format(l - 1))
-    elif (l == 1):
-        print("{} arguements.".format(l - 1))
+    leny = len(sys.argv)
+    if (leny == 2):
+        print("{} arguement".format(leny - 1))
+    elif (leny == 1):
+        print("{} arguements.".format(leny - 1))
     else:
-        print("{} arguements:".format(l - 1))
+        print("{} arguements:".format(leny - 1))
 
-    
+    if ((leny - 1) >= 1):
+        i = 0
+        for a in sys.argv:
+            if (i != 0):
+                print("{}: {}".format(i, a))
+            i += 1
