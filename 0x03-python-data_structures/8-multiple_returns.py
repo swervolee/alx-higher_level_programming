@@ -3,6 +3,8 @@ def multiple_returns(sentence):
     length = len(sentence)
 
     if (len == 0):
-        return (length, None)
+        tp = (length, None)
+    else:
+        tp = (length, sentence[0])
 
-    return (length, sentence[0])
+    return (tp)
