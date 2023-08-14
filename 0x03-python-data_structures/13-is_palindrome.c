@@ -10,67 +10,89 @@
  */
 int is_palindrome(listint_t **head)
 {
-    if (head == NULL || *head == NULL)
-        return 1;
+	listint_t *fast, *slow, *mid, *slow_track;
+	int  pal;
 
-    listint_t *slow = *head;
-    listint_t *fast = *head;
-    listint_t *stack = NULL;
+	fast = slow = slow_track = *head;
+	mid = NULL;
 
-    while (fast != NULL && fast->next != NULL)
-    {
-        stack_push(&stack, slow->n);
-        slow = slow->next;
-        fast = fast->next->next;
-    }
+	pal = 1;
+	if (*head && (*head)->next)
+	{
+		while (fast && fast->next)
+		{
+			fast = fast->next->next;
+			slow_track = slow, slow = slow->next;
+		}
 
-    if (fast != NULL)
-        slow = slow->next;
+		if (fast)
+		{
+			mid = slow, slow = slow->next;
+		}
 
-    while (slow != NULL)
-    {
-        int data = stack_pop(&stack);
-        if (data != slow->n)
-            return 0;
-        slow = slow->next;
-    }
+		flip(&slow);
+		slow_track->next = NULL;
+		pal = contrast(head, &slow);
 
-    return 1;
+		if (mid)
+		{
+			slow_track->next = mid;
+			mid->next = slow;
+		}
+		else
+		{
+			slow_track->next = slow;
+		}
+	}
+	return (pal);
 }
 
 /**
- * stack_push - pushes a value onto the stack
- * @stack: pointer to the top of the stack
- * @value: value to push onto the stack
+ *contrast - compares the integer values of the linked list
+ *@head: the head of the fast half of linked list
+ *@slow: the head of the second half of the linked list
+ *Return: 0 if not palindrome else 1
  */
-void stack_push(listint_t **stack, int value)
+int contrast(listint_t **head, listint_t **slow)
 {
-    listint_t *new_node = malloc(sizeof(listint_t));
-    if (new_node == NULL)
-    {
-        exit(EXIT_FAILURE);
-    }
+	listint_t *Head = *head, *Slow = *slow;
 
-    new_node->n = value;
-    new_node->next = *stack;
-    *stack = new_node;
+	while (Head && Slow)
+	{
+		if (Head->n != Slow->n)
+		{
+			return (0);
+		}
+
+		Head = Head->next;
+		Slow = Slow->next;
+	}
+
+	if (!Head && !Slow)
+	{
+		return (1);
+	}
+
+	return (0);
 }
 
 /**
- * stack_pop - pops a value from the stack
- * @stack: pointer to the top of the stack
- * Return: the value popped from the stack
+ *flip - reverses a linked list
+ *@slow: the head of the first half of the linked list
+ *Return: nothing
  */
-int stack_pop(listint_t **stack)
+void flip(listint_t **slow)
 {
-    if (*stack == NULL)
-    {
-        exit(EXIT_FAILURE);
-    }
+	listint_t *cp, *next, *prev;
 
-    listint_t *top = *stack;
-    *stack = top->next;
-    int value = top->n;
-    free(top);
-    return value;
+	cp = *slow, prev = NULL;
+
+	while (cp)
+	{
+		next = cp->next;
+		cp->next = prev;
+		prev = cp;
+		cp = next;
+	}
+	*slow = prev;
 }

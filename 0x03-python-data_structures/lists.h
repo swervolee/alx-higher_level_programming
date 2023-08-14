@@ -19,9 +19,7 @@ size_t print_listint(const listint_t *h);
 listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
 int is_palindrome(listint_t **head);
-void stack_push(listint_t **stack, int value);
-int stack_pop(listint_t **stack);
-
-
+void flip(listint_t **slow);
+int contrast(listint_t **head, listint_t **slow);
 
 #endif /* LISTS_H */
