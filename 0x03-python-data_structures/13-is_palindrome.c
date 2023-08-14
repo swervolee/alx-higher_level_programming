@@ -47,7 +47,7 @@ int is_palindrome(listint_t **head)
 int check(int *list, int idx1, int idx2)
 {
 
-	for (idx1, idx2; idx1 < idx2; idx1++, idx2--)
+	for (; idx1 < idx2; idx1++, idx2--)
 	{
 		if (list[idx1] != list[idx2])
 		{
