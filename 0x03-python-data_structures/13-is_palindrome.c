@@ -57,13 +57,4 @@ int check(int *list, int idx1, int idx2)
 		}
 	}
 	return (1);
-/*	if (idx1 >= idx2)*/
-/*	{*/
-/*		return (1);*/
-/*	}*/
-/*	if (list[idx1] != list[idx2])*/
-/*	{*/
-/*		return (0);*/
-/*	}*/
-/*	return check(list, idx1 + 1, idx2 -1);*/
 }
