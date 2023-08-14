@@ -48,7 +48,6 @@ void stack_push(listint_t **stack, int value)
     listint_t *new_node = malloc(sizeof(listint_t));
     if (new_node == NULL)
     {
-        perror("Memory allocation failed");
         exit(EXIT_FAILURE);
     }
 
@@ -66,7 +65,6 @@ int stack_pop(listint_t **stack)
 {
     if (*stack == NULL)
     {
-        fprintf(stderr, "Stack is empty\n");
         exit(EXIT_FAILURE);
     }
 
