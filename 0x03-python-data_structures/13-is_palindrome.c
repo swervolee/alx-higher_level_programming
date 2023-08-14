@@ -1,60 +1,78 @@
 #include "lists.h"
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- *is_palindrome - verifys if a linked list is a palindrome
- *@head: first element of the palindrome
- *Return:1 if palindrome, else zero
+ * is_palindrome - checks if a singly linked list is a palindrome
+ * @head: pointer to head of list
+ * Return: 0 if it's not a palindrome, 1 if it's a palindrome
  */
-
 int is_palindrome(listint_t **head)
 {
-	int i, k;
-	int *list = NULL;
-	listint_t *current = *head;
+    if (head == NULL || *head == NULL)
+        return 1;
 
-	for (i = 0; current != NULL; i++)
-	{
-		current = current->next;
-	}
+    listint_t *slow = *head;
+    listint_t *fast = *head;
+    listint_t *stack = NULL;
 
-	list = malloc(i * sizeof(int));
-	if (!list)
-	{
-		exit(EXIT_FAILURE);
-	}
+    while (fast != NULL && fast->next != NULL)
+    {
+        stack_push(&stack, slow->n);
+        slow = slow->next;
+        fast = fast->next->next;
+    }
 
-	current = *head;
+    if (fast != NULL)
+        slow = slow->next;
 
-	for (k = 0; current != NULL; k++)
-	{
-		list[k] = current->n;
-		current = current->next;
-	}
+    while (slow != NULL)
+    {
+        int data = stack_pop(&stack);
+        if (data != slow->n)
+            return 0;
+        slow = slow->next;
+    }
 
-	return (check(list, 0, k - 1));
+    return 1;
 }
 
 /**
- *check - a helper function to check for palindrome
- *@list: an array containing the linked lists elements
- *@idx1: first index
- *@idx2: last index
- *Return: 1 if palindrome else 0
+ * stack_push - pushes a value onto the stack
+ * @stack: pointer to the top of the stack
+ * @value: value to push onto the stack
  */
-
-int check(int *list, int idx1, int idx2)
+void stack_push(listint_t **stack, int value)
 {
+    listint_t *new_node = malloc(sizeof(listint_t));
+    if (new_node == NULL)
+    {
+        perror("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
 
-	for (; idx1 < idx2; idx1++, idx2--)
-	{
-		if (list[idx1] != list[idx2])
-		{
-			{
-				return (0);
-			}
-		}
-	}
-	return (1);
+    new_node->n = value;
+    new_node->next = *stack;
+    *stack = new_node;
+}
+
+/**
+ * stack_pop - pops a value from the stack
+ * @stack: pointer to the top of the stack
+ * Return: the value popped from the stack
+ */
+int stack_pop(listint_t **stack)
+{
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "Stack is empty\n");
+        exit(EXIT_FAILURE);
+    }
+
+    listint_t *top = *stack;
+    *stack = top->next;
+    int value = top->n;
+    free(top);
+    return value;
 }

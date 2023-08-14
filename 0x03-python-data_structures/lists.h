@@ -18,7 +18,10 @@ typedef struct listint_s
 size_t print_listint(const listint_t *h);
 listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
-int check(int *list, int idx1, int idx2);
 int is_palindrome(listint_t **head);
+void stack_push(listint_t **stack, int value);
+int stack_pop(listint_t **stack);
+
+
 
 #endif /* LISTS_H */
