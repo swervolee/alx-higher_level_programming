@@ -4,5 +4,11 @@ from functools import reduce
 def best_score(dct):
     if dct is None:
         return (None)
-    best = reduce(lambda a, b:a if dct[a] > dct[b] else b, dct)
-    return (best)
+    best_key = None
+    best_value = 0;
+
+    for k, v in dct.items():
+        if v > best_value:
+            best_key = k
+            best_value = v
+    return (best_key)
