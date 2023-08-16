@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-from functools import reduce
-
 def best_score(dct):
     if dct is None:
         return (None)
