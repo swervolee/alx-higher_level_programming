@@ -1,40 +1,70 @@
-#!/usr/bin/python3
-def to_subtract(list_num):
-    to_sub = 0
-    max_list = max(list_num)
+#include <stdio.h>
+#include <Python.h>
 
-    for n in list_num:
-        if max_list > n:
-            to_sub += n
+/**
+ * print_python_bytes - Prints bytes information
+ *
+ * @p: Python Object
+ * Return: no return
+ */
+void print_python_bytes(PyObject *p)
+{
+	char *string;
+	long int size, i, limit;
 
-    return (max_list - to_sub)
+	printf("[.] bytes object info\n");
+	if (!PyBytes_Check(p))
+	{
+		printf("  [ERROR] Invalid Bytes Object\n");
+		return;
+	}
 
+	size = ((PyVarObject *)(p))->ob_size;
+	string = ((PyBytesObject *)p)->ob_sval;
 
-def roman_to_int(roman_string):
-    if not roman_string:
-        return 0
+	printf("  size: %ld\n", size);
+	printf("  trying string: %s\n", string);
 
-    if not isinstance(roman_string, str):
-        return 0
+	if (size >= 10)
+		limit = 10;
+	else
+		limit = size + 1;
 
-    rom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    list_keys = list(rom_n.keys())
+	printf("  first %ld bytes:", limit);
 
-    num = 0
-    last_rom = 0
-    list_num = [0]
+	for (i = 0; i < limit; i++)
+		if (string[i] >= 0)
+			printf(" %02x", string[i]);
+		else
+			printf(" %02x", 256 + string[i]);
 
-    for ch in roman_string:
-        for r_num in list_keys:
-            if r_num == ch:
-                if rom_n.get(ch) <= last_rom:
-                    num += to_subtract(list_num)
-                    list_num = [rom_n.get(ch)]
-                else:
-                    list_num.append(rom_n.get(ch))
+	printf("\n");
+}
 
-                last_rom = rom_n.get(ch)
+/**
+ * print_python_list - Prints list information
+ *
+ * @p: Python Object
+ * Return: no return
+ */
+void print_python_list(PyObject *p)
+{
+	long int size, i;
+	PyListObject *list;
+	PyObject *obj;
 
-    num += to_subtract(list_num)
+	size = ((PyVarObject *)(p))->ob_size;
+	list = (PyListObject *)p;
 
-    return (num)
+	printf("[*] Python list info\n");
+	printf("[*] Size of the Python List = %ld\n", size);
+	printf("[*] Allocated = %ld\n", list->allocated);
+
+	for (i = 0; i < size; i++)
+	{
+		obj = ((PyListObject *)p)->ob_item[i];
+		printf("Element %ld: %s\n", i, ((obj)->ob_type)->tp_name);
+		if (PyBytes_Check(obj))
+			print_python_bytes(obj);
+	}
+}
