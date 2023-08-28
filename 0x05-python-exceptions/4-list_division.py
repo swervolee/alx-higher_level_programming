@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-def list_division(list_1, list_2, length):
+def list_division(my_list_1, my_list_2, list_length):
 
     new = []
-    for i in range(length):
+    for i in range(list_length):
         try:
-            x = list_1[i] / list_2[i]
+            x = my_list_1[i] / my_list_2[i]
         except IndexError:
             print("out of range")
             x = 0
