@@ -10,7 +10,7 @@ def list_division(my_list_1, my_list_2, list_length):
             print("out of range")
             x = 0
         except ZeroDivisionError:
-            print("diviision by 0")
+            print("division by 0")
             x = 0
         except (TypeError):
             print("wrong type")
