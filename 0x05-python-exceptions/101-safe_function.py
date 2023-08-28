@@ -5,6 +5,6 @@ def safe_function(fct, *args):
         rt = fct(*args)
     except Exception as e:
         import sys
-        sys.stderr.write("Exception: {}\n".format(e));
+        sys.stderr.write("Exception: {}\n".format(e))
         rt = None
     return (rt)
