@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 
 
-
 """a class that defines a square"""
 
 
 class Square:
     """adds exception to the class square"""
 
-    def __init__(self, size=0, position = (0, 0)):
+    def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
 
