@@ -56,7 +56,6 @@ class Square:
                     print("#", end="")
                 print("")
 
-
     def __str__(self):
         if self.__size == 0:
             return ""
