@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """and instance of a circle"""
 
+import math
 
 class MagicClass:
     """defines models on the circle eg area and circumfrence"""
