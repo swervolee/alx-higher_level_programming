@@ -5,8 +5,8 @@
 class Node:
     """defines the attributes of node"""
     def __init__(self, data, next_node=None):
-        self.__data = data
-        self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
@@ -46,7 +46,7 @@ class SinglyLinkedList:
             self.__head = new
         else:
             hold = self.__head
-            while hold.next_node is not None and hold.next_node.data < value:
+            while (hold.next_node is not None and hold.next_node.data < value):
                 hold = hold.next_node
             new.next_node = hold.next_node
             hold.next_node = new
