@@ -1,6 +1,5 @@
 #                                                        PYTHON UNNITEST AND DOCTEST
 
-![road lights](david-watkis-LwRUp8vJJI8-unsplash.jpg)
    ## unittest (PyUnit):
 
     unittest is a testing framework inspired by Java's JUnit. It provides a test discovery mechanism and various assertion methods to check expected outcomes. Here are some key features:
@@ -60,3 +59,5 @@ python
 > You can run doctest by executing the script, and it will find and run the tests embedded in the docstrings.
 
 >In summary, unittest is a more comprehensive testing framework suitable for large-scale testing with test discovery and advanced assertion methods, while doctest is a lightweight option primarily used for simple tests embedded in documentation. The choice between them depends on the complexity and requirements of your testing scenarios.
+
+![road lights](david-watkis-LwRUp8vJJI8-unsplash.jpg)
