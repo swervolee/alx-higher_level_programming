@@ -1,6 +1,6 @@
 #                                                        PYTHON UNNITEST AND DOCTEST
 
-![road lights](/images/david-watkis-LwRUp8vJJI8-unsplash.jpg)
+![road lights](david-watkis-LwRUp8vJJI8-unsplash.jpg)
    ## unittest (PyUnit):
 
     unittest is a testing framework inspired by Java's JUnit. It provides a test discovery mechanism and various assertion methods to check expected outcomes. Here are some key features:
