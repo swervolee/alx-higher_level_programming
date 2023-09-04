@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+#!/usr/bin/python3
 """this is a module that creates a class rectangle"""
 
 
@@ -8,6 +10,8 @@ class Rectangle:
     length
     width
     """
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
