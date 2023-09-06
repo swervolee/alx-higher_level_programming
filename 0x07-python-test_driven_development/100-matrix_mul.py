@@ -2,8 +2,8 @@
 
 """ A module to multiply  a matrix"""
 
-def matrix_mul(m_a, m_b):
 
+def matrix_mul(m_a, m_b):
     """
     a function to multiply a matrix
     m_a: the fist matrix
@@ -23,8 +23,6 @@ def matrix_mul(m_a, m_b):
 
     if m_a or m_b is not a rectangle
     """
-
-
 
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
@@ -59,7 +57,7 @@ def matrix_mul(m_a, m_b):
     length = 0
 
     for a in m_a:
-        if length != 0 and len(a)!= length:
+        if length != 0 and len(a) != length:
             raise TypeError("each row of m_a must be of the same size")
         length = len(a)
 
@@ -74,7 +72,6 @@ def matrix_mul(m_a, m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
     main = [[0 for _ in range(len(m_b[0]))] for _ in range(len(m_a))]
-
 
     for i in range(len(m_a)):
         for j in range(len(m_b[0])):
