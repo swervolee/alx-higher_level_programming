@@ -49,3 +49,40 @@ trying to pass a negative value
 Traceback (most recent call last):
 ...
 ValueError: two must be greater than 0
+
+
+Test 4:
+
+trying to pass zero
+
+
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", 0)
+Traceback (most recent call last):
+...
+ValueError: two must be greater than 0
+
+
+
+Test 5:
+
+trying to pass a non integer
+
+
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", "twoa")
+Traceback (most recent call last):
+...
+TypeError: two must be an integer
+
+
+Test 6:
+
+trying to pass one argument to integer validator
+
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two")
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
