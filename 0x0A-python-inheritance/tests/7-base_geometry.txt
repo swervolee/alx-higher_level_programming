@@ -76,3 +76,12 @@ Traceback (most recent call last):
 TypeError: two must be an integer
 
 
+Test 6:
+
+trying to pass one argument to integer validator
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name")
+Traceback (most recent call last):
+    	      ...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
