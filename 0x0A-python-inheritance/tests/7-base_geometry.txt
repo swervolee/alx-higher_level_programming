@@ -1,0 +1,201 @@
+                          SEVEN BASE GEOMETRY MODULE
+			  ==========================
+
+Importing the module
+
+Test 0:
+
+trying to print the area
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+
+
+Test 1:
+
+trying to pass an integer to validate integer
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", 2)
+
+
+
+Test 2:
+
+trying to pass a bool to integer validator
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", True)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rhlee/my_projects/Holberton/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 34, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: two must be an integer
+
+
+Test 3:
+
+trying to pass a negative value
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", -4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rhlee/my_projects/Holberton/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 36, in integer_validator
+    raise ValueError("{} must be greater than 0".format(name))
+ValueError: two must be greater than 0
+
+
+
+Test 4:
+
+trying to pass zero
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", 0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rhlee/my_projects/Holberton/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 36, in integer_validator
+    raise ValueError("{} must be greater than 0".format(name))
+ValueError: two must be greater than 0
+
+
+
+Test 5:
+
+trying to pass a non integer
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", "twoa")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rhlee/my_projects/Holberton/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 34, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: two must be an integer
+
+
+Test 6:
+
+trying to pass one argument to integer validator
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+
+Test 7:
+
+Trying to pas no arguments
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+Test 8
+
+trying to pass three arguments
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("hello", 4, 4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+
+
+
+Test 9:
+
+passing one argument to area
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.area(4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+
+
+Test 10:
+
+trying to pass two arguments to area
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.area(4, 5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry.area() takes 1 positional argument but 3 were given
+
+
+test 11:
+
+passing tuple to integer validator
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("four", (2, 3))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rhlee/my_projects/Holberton/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 34, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: four must be an integer
+
+
+Test 12:
+
+passing list to integer validator
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("four", [2, 3])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rhlee/my_projects/Holberton/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 34, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: four must be an integer
+
+
+Test 13:
+
+passing dict to integer validator
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("four", {"four": 3})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rhlee/my_projects/Holberton/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 34, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: four must be an integer
+
+
+Test 14:
+
+trying to pass None to integer validator
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("four", None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rhlee/my_projects/Holberton/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 34, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: four must be an integer

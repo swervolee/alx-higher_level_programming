@@ -13,4 +13,4 @@ class BaseGeometry:
         """
         a method to calculate area
         """
-        raise Exception("area() is not implimented")
+        raise Exception("area() is not implemented")
