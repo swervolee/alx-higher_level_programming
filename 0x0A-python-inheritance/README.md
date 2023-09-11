@@ -1,5 +1,10 @@
 #							Object-Oriented Programming (OOP) Inheritance
+
+
 ![inheritance](image-4.png)
+
+
+
 Inheritance is a fundamental concept in Object-Oriented Programming (OOP) that allows you to create new classes (child or subclass) based on existing classes (parent or superclass). This concept promotes code reusability and the creation of a hierarchy of classes.
 
 ###	       key Terminology
@@ -31,8 +36,13 @@ Example in Python
 python
 
 # Superclass (Parent Class)
+
+```
+
 class Vehicle:
     def __init__(self, brand):
         self.brand = brand
+```
+
 
 In this example, the Vehicle class is the superclass, and you can create subclasses like Car and Bicycle to inherit the brand attribute.
