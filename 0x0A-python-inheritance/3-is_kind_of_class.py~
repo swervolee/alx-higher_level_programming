@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+"""
+tells if an object is derived or is from a given class
+"""
+
+
+def is_kind_of_class(obj, a_class):
+    if obj == a_class or issubclass(a_class, obj):
+        return (True)
+    return (False)
