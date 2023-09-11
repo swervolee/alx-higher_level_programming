@@ -15,3 +15,37 @@ trying to print the area
 Traceback (most recent call last):
 ...
 Exception: area() is not implemented
+
+
+Test 1:
+
+trying to pass an integer to validate integer
+
+
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", 2)
+
+
+
+Test 2:
+
+trying to pass a bool to integer validator
+
+
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", True)
+Traceback (most recent call last):
+...
+TypeError: two must be an integer
+
+
+Test 3:
+
+trying to pass a negative value
+
+
+>>> basegeometry = BaseGeometry()
+>>> basegeometry.integer_validator("two", -4)
+Traceback (most recent call last):
+...
+ValueError: two must be greater than 0
