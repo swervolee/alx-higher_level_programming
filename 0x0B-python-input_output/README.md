@@ -1,6 +1,10 @@
 #                   Python File Input and Output Guide
 =======================================================================
 
+![python input output](images.png)
+
+
+
 Table of Contents
 
     * Introduction
