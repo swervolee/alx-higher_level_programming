@@ -28,4 +28,4 @@ class Student:
         """
         returns a dictionary representation of self
         """
-        return (self.__dict__)
+        return (self.__dict__.copy())
