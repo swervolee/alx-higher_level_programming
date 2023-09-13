@@ -29,9 +29,11 @@ class Student:
         if attrs is not none - returns a dictonary of the specified values
         returns a dictionary representation of self
         """
-        if attrs:
+        if type(attrs) is list:
             new = {}
             for x, y in self.__dict__.items():
+                if type(x) is not str:
+                    return (self.__dict__.copy())
                 if x in attrs:
                     new[x] = y
             return (new)
