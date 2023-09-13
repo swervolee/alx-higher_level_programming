@@ -21,11 +21,11 @@ class Student:
         age - the age of the student
         """
         self.first_name = first_name
-        self.last_neme = last_name
+        self.last_name = last_name
         self.age = age
 
     def to_json(self):
         """
         returns a dictionary representation of self
         """
-        return (self.__dict__.copy())
+        return self.__dict__.copy()
