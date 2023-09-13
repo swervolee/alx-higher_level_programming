@@ -17,6 +17,6 @@ if __name__ == "__main__":
 
     try:
         old = load_from_json("add_new_item.json")
-        save_to_json(new + old, "add_new_item.json")
+        save_to_json(old + new, "add_new_item.json")
     except FileNotFoundError:
         save_to_json(new, "add_new_item.json")
