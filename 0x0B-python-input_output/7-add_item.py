@@ -11,8 +11,8 @@ if __name__ == "__main__":
     save_to_json = __import__("5-save_to_json_file").save_to_json_file
 
     try:
-        new =  load_from_json("add_item.json")
-    except:
+        new = load_from_json("add_item.json")
+    except FileNotFoundError:
         new = []
 
     new.extend(argv[1:])
