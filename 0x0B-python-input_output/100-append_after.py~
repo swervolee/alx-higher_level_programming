@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+"""
+a module to insert text incase of an occurence of a given text
+the text is inserted in the line that follows the text occurence
+"""
+
+
+def append_after(filename="", search_string="", new_string=""):
+    with open(filename, mode="r+", encoding="utf-8") as file:
+        content = file.readlines()
+
+        for i, line in enumerate(content):
+            if search_string in line:
+                content.insert(i + 1, new_string + '\n')  # Insert the new line
+
+        file.seek(0)  # Move the cursor to the beginning of the file
+        file.writelines(content)  # Write the modified content back to the file
