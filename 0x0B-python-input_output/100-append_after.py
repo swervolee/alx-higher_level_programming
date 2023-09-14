@@ -7,8 +7,8 @@ the text is inserted in the line that follows the text occurence
 
 def append_after(filename="", search_string="", new_string=""):
     """
-    a function that inserts a line of text to a file, after each line containing
-    a specific string
+    a function that inserts a line of text to a file,
+    after each line containing a specific string
 
     ARGS
 
@@ -27,4 +27,4 @@ def append_after(filename="", search_string="", new_string=""):
                 content.insert(i + 1, new_string)
 
         file.seek(0)
-        file.writelines(content)
+        file.write(content)
