@@ -20,11 +20,11 @@ def append_after(filename="", search_string="", new_string=""):
     the search string was found
     """
     with open(filename, mode="r+", encoding="utf-8") as file:
-        content = file.readlines()
+        content = ""
 
-        for i, line in enumerate(content):
+        for line in file:
+            content += line
             if search_string in line:
-                content.insert(i + 1, new_string)
-
+                content += new_string
         file.seek(0)
         file.write(content)
