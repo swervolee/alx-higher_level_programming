@@ -19,6 +19,11 @@ class Rectangle(Base):
         height - (int) the height of the rectangle
         x/y - (int) cordinates
         id - super class inheritance
+
+        RAISES AN EXCEPTION WHEN:
+        width/height/x/y is not an integer
+        width/height <= 0
+        x/y < 0
         """
         super().__init__(id)
         self.width = width
@@ -73,3 +78,9 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """
+        calculates and returns the area of a rectangle
+        """
+        return (self.__width * self.__height)
