@@ -91,10 +91,18 @@ class Rectangle(Base):
         """
         w = self.width
         h = self.height
-        print("\n".join(["".join(["#" for _ in range(w)])
-                         for _ in range(h)]))
+
+        for _ in range(self.y):
+            print("")
+
+        for _ in range(h):
+            print(" " * self.x, end="")
+            print("".join(["#" for _ in range(w)]))
 
     def __str__(self):
+        """
+        returns a string representation of the class
+        """
         return ("[Rectangle] ({}) {}/{} - {}/{}".format
                 (self.id, self.x, self.y,
                  self.width, self.height))
