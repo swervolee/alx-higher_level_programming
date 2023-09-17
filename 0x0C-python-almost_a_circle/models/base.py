@@ -57,3 +57,28 @@ class Base:
             return "[]"
         else:
             return (json.loads(json_string))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        creates a new instance from a dictionary
+        """
+        if cls.__name__ == "Square":
+            crt = cls(1)
+        else:
+            crt = cls(1, 1)
+        crt.update(**dictionary)
+        return (crt)
+
+    @classmethod
+    def   load_from_file(cls):
+        """
+        Return a list of classes from a file of json strings
+        """
+        File = cls.__name__ + ".json"
+        try:
+            with open(File, "r") as file:
+                dc = Base.from_json_string(file.read())
+                return [cls.create(**a) for a in dc]
+        except IOError:
+            return []
