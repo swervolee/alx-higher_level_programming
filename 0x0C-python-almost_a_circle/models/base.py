@@ -3,6 +3,7 @@
 a module to create a class called base
 """
 import json
+import csv
 
 
 class Base:
@@ -54,7 +55,7 @@ class Base:
         deserializes a json string
         """
         if json_string == "[]" or json_string is None:
-            return "[]"
+            return []
         else:
             return (json.loads(json_string))
 
@@ -80,5 +81,42 @@ class Base:
             with open(File, "r") as file:
                 dc = Base.from_json_string(file.read())
                 return [cls.create(**a) for a in dc]
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        serialrizes a list of objects to csv
+        """
+        lb = list_objs
+        File = cls.__name__ + ".csv"
+        if cls.__name__ == "Rectangle":
+            fieldnames = ["id", "width", "height", "x", "y"]
+        else:
+            fieldnames = ["id", "size", "x", "y"]
+        with open(File, "w", newline="") as file:
+            if lb is None or len(lb) == 0:
+                file.write("[]")
+            else:
+                writer = csv.DictWriter(file, fieldnames=fieldnames)
+                for a in lb:
+                    writer.writerow(a.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        creates instances of  classes from a csv file
+        """
+        File = cls.__name__ + ".csv"
+        if cls.__name__ == "Rectangle":
+            fieldnames = ["id", "width", "height", "x", "y"]
+        else:
+            fieldnames = ["id", "size", "x", "y"]
+        try:
+            with open(File, "r", newline="") as file:
+                reader = csv.DictReader(file, fieldnames=fieldnames)
+                ls = [dict([k, int(v)] for k, v in a.items()) for a in reader]
+                return [cls.create(**a) for a in list(ls)]
         except IOError:
             return []
