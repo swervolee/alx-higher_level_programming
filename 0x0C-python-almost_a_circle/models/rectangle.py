@@ -111,7 +111,7 @@ class Rectangle(Base):
         """
         Used to set or update the values of the object
         """
-   if args and len(args) != 0:
+        if args and len(args) != 0:
             a = 0
             for arg in args:
                 if a == 0:
@@ -144,3 +144,16 @@ class Rectangle(Base):
                     self.x = v
                 elif k == "y":
                     self.y = v
+
+    def to_dictionary(self):
+        """
+        prints a dictionary representation of the class
+        """
+        dc = {
+            "id" : self.id,
+            "width": self.width,
+            "height": self.height,
+            "x" : self.x,
+            "y" : self.y
+            }
+        return dc

@@ -2,6 +2,7 @@
 """
 a module to create a class called base
 """
+import json
 
 
 class Base:
@@ -19,3 +20,14 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        returns a JSON representation of list dictionary
+        """
+        dc = list_dictionaries
+
+        if not dc or len(dc) == 0:
+            return "[]"
+        return (json.dumps(dc))
