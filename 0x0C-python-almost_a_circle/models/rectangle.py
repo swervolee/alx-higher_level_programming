@@ -150,10 +150,10 @@ class Rectangle(Base):
         prints a dictionary representation of the class
         """
         dc = {
-            "id" : self.id,
+            "id": self.id,
             "width": self.width,
             "height": self.height,
-            "x" : self.x,
-            "y" : self.y
+            "x": self.x,
+            "y": self.y
             }
         return dc

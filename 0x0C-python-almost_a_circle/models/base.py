@@ -4,6 +4,7 @@ a module to create a class called base
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -72,7 +73,7 @@ class Base:
         return (crt)
 
     @classmethod
-    def   load_from_file(cls):
+    def load_from_file(cls):
         """
         Return a list of classes from a file of json strings
         """
@@ -120,3 +121,39 @@ class Base:
                 return [cls.create(**a) for a in list(ls)]
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        draws shapes from a list of square and rectangle objects
+        """
+        t = turtle.Turtle()
+        t.pen(fillcolor="orange", pensize=2, pencolor="black")
+        t.screen.bgcolor("green")
+        t.shape("blank")
+
+        for a in list_rectangles:
+            t.showturtle()
+            t.up()
+            t.setpos(a.x, a.y)
+            t.down()
+            for _ in range(2):
+                t.fd(a.width)
+                t.lt(90)
+                t.fd(a.height)
+                t.lt(90)
+            t.hideturtle()
+
+        t.pen(fillcolor="red", pencolor="yellow")
+        t.clear()
+        for a in list_squares:
+            t.showturtle()
+            t.up()
+            t.setpos(a.x, a.y)
+            t.down()
+            for _ in range(2):
+                t.fd(a.width)
+                t.lt(90)
+                t.fd(a.height)
+                t.lt(90)
+            turt.hideturtle()
