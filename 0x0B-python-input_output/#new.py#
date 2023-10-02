@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+#!/usr/bin/python3
 """Reads from standard input and computes metrics.
 
 After every ten lines or the input of a keyboard interruption (CTRL + C),
@@ -19,9 +21,9 @@ if __name__ == "__main__":
 
         ls = []
         for line in sys.stdin:
-            love = line.split()
-            size += int(love[-1])
-            ls.append(int(love[-2]))
+            l = line.split()
+            size += int(l[-1])
+            ls.append(int(l[-2]))
 
             if i == 10:
                 i = 1
