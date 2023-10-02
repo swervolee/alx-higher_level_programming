@@ -8,17 +8,17 @@ prints the following statistics:
 """
 
 if __name__ == "__main__":
-    import sys
+    try:
+        import sys
 
-    size = 0
-    i = 1
+        size = 0
+        i = 1
 
-    sc = [200, 301, 400, 401, 403, 404, 405, 500]
-    sc.sort()
+        sc = [200, 301, 400, 401, 403, 404, 405, 500]
+        sc.sort()
 
-    ls = []
-    for line in sys.stdin:
-        try:
+        ls = []
+        for line in sys.stdin:
             l = line.split()
             size += int(l[-1])
             ls.append(int(l[-2]))
@@ -31,8 +31,9 @@ if __name__ == "__main__":
                         print("{}: {}".format(k, ls.count(k)))
             else:
                 i += 1
-        except KeyboardInterrupt:
-            print(f"File size: {size}")
-            for k in sc:
-                if k in ls:
-                    print("{}: {}".format(k, ls.count(k)))
+    except KeyboardInterrupt:
+        print(f"File size: {size}")
+        for k in sc:
+            if k in ls:
+                print("{}: {}".format(k, ls.count(k)))
+        raise
