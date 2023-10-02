@@ -12,7 +12,7 @@ if __name__ == "__main__":
         import sys
 
         size = 0
-        i = 1
+        i = 0
 
         sc = [200, 301, 400, 401, 403, 404, 405, 500]
         sc.sort()
@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
             if i == 10:
                 i = 1
-                print(f"File size: {size}")
+                print("File size: {}".format(size))
                 for k in sc:
                     if k in ls:
                         print("{}: {}".format(k, ls.count(k)))
