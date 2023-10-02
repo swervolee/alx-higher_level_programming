@@ -15,25 +15,24 @@ if __name__ == "__main__":
         i = 0
 
         sc = [200, 301, 400, 401, 403, 404, 405, 500]
-        sc.sort()
 
-        ls = []
+        ls = {code: 0 for code in sc}
+
         for line in sys.stdin:
-            love = line.split()
-            size += int(love[-1])
-            ls.append(int(love[-2]))
+            parts = line.split()
+            size += int(parts[-1])
+            status_code = int(parts[-2])
+            ls[status_code] += 1
 
-            if i == 10:
-                i = 1
+            if i == 9:
+                i = 0
                 print("File size: {}".format(size))
-                for k in sc:
-                    if k in ls:
-                        print("{}: {}".format(k, ls.count(k)))
+                for k in sorted(ls):
+                    print("{}: {}".format(k, ls[k]))
             else:
                 i += 1
     except KeyboardInterrupt:
         print(f"File size: {size}")
-        for k in sc:
-            if k in ls:
-                print("{}: {}".format(k, ls.count(k)))
+        for k in sorted(ls):
+            print("{}: {}".format(k, ls[k]))
         raise
