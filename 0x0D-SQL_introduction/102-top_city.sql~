@@ -1,0 +1,3 @@
+-- Importing and using a Dump table
+
+mysql -uroot hbtn_0c_0 < temperatures.sql
