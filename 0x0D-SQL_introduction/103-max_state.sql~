@@ -3,4 +3,4 @@
 select state, MAX(values) as max_temp
 FROM  temperatures
 GROUP BY state
-ORDER BY state ASC
+ORDER BY max_temp DESC
