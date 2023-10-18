@@ -1,4 +1,4 @@
--- Lists all the comedy shows
+-- Lists all the comedy shows that are in the table tv_shows
 
 SELECT ts.title
        FROM tv_genres AS gnr
