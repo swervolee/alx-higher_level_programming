@@ -5,8 +5,10 @@ CREATE DATABASE
        IF NOT EXISTS
        `hbtn_0d_usa`;
 
+USE `hbtn_0d_usa`;
+
 CREATE TABLE
        IF NOT EXISTS
-       `hbtn_0d_usa.states`(
+       `states`(
        `id` INT NOT NULL AUT0_INCREMENT PRIMARY KEY,
        `name` VARCHAR(256) NOT NULL);
