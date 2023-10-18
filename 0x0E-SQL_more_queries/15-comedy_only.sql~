@@ -6,5 +6,5 @@ SELECT ts.title
        	     ON gnr.id = tsg.genre_id
 	INNER JOIN tv_shows AS ts
 	      on tsg.show_id = ts.id
-	WHERE gnr.name = "Comedy"
-	ORDER BY ts.title;
+	WHERE gnr.name = Comedy
+	ORDER BY ts.title
