@@ -3,7 +3,7 @@
 SELECT `id`, `name`
        FROM `cities`
        WHERE `state_id` IN (
-       	     select `id`
+       	     SELECT `id`
        	     FROM `states`
-       	     where `name` = 'california')
+       	     WHERE `name` = 'california')
       ORDER BY `id`
