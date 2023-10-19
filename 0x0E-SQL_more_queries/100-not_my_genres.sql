@@ -1,12 +1,12 @@
 -- Listing all genres related to the tv show Dexter
 
-SELECT gnr.name
+SELECT name
        FROM tv_genres AS gnr
        INNER JOIN tv_show_genres AS tsg
        ON gnr.id = tsg.genre_id
        INNER JOIN tv_shows AS ts
        ON tsg.show_id = ts.id
-       WHERE g.name NOT IN (
+       WHERE gnr.name NOT IN (
        	      (SELECT `name`
                 FROM `tv_genres` AS g
 	             INNER JOIN `tv_show_genres` AS s
