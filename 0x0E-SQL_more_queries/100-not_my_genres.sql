@@ -15,3 +15,4 @@ SELECT gnr.name
 		    ON tsg.genre_id = gnr.id
 		    WHERE ts.title = "Dexter"
 		    )
+	ORDER BY gnr.name
