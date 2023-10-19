@@ -6,7 +6,7 @@ SELECT gnr.name
        ON gnr.id = tsg.genre_id
        INNER JOIN tv_shows AS ts
        ON tsg.show_id = ts.id
-       WHERE ts.title NOT IN (
+       WHERE g.name NOT IN (
        	     SELECT ts.title
 	     	    FROM tv_shows AS ts
 		    INNER JOIN tv_show_genres AS tsg
