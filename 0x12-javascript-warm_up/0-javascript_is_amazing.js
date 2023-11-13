@@ -1,3 +1,3 @@
-#!/usr/bin/env node
-const a = 'Javascript is amazing';
+#!/usr/bin/env
+const a = 'JavaScript is amazing';
 console.log(a);
