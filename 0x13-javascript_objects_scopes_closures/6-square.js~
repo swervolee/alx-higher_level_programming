@@ -1,0 +1,16 @@
+#!/usr/bin/node
+module.exports = class Square extends require('./4-rectangle.js') {
+    constructor (size) {
+	super (size, size);
+    }
+
+    charPrint(c) {
+	if (isNaN(c)) {
+	    var sy = 'X';
+	} else {
+	    var sy = c;
+	}
+
+	for (let i = 0; i < this.height; i++) console.log(sy.repeat(this.width));
+    }
+};
