@@ -1,3 +1,3 @@
-#!/usr/bin/node
-const a = 'JavaScript is amazing';
-console.log(a);
+#!/usr/bin/env js
+/* Prints a sentence to stdout */
+console.log('JavaScript is amazing');
