@@ -6,17 +6,18 @@ import sqlalchemy
 from sqlalchemy import create_engine, text
 from model_state import Base, State
 import sys
+from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
                            format(sys.argv[1], sys.argv[2], sys.argv[
                                3], pool_pre_ping=True))
 
-    conn = engine.connect()
+    Base.metadata.create_all(bind=engine)
 
-    result = conn.execute(text("SELECT * FROM states"))
+    Session = sessionmaker(engine)
 
-    rows = result.fetchall()
+    session = Session()
 
-    for i in range(len(rows)):
-        print(f"{i}: {rows[i][1]}")
+    for item in session.query(State).order_by(State.id):
+        print(item.id, item.name, sep=": ")
