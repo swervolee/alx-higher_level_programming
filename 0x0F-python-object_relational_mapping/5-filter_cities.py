@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Makes a query that selects all states and cities"""
+"""Makes a query that selects all cities from a given state"""
 
 
 import MySQLdb
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     cur = db.cursor()
 
     cur.execute("""
-        SELECT name FROM cities WHERE state_id LIKE (SELECT id FROM states
+        SELECT name FROM cities WHERE state_id LIKE BINARY (SELECT id FROM states
         WHERE name LIKE BINARY %s)""", (state_name,))
 
     rows = cur.fetchall()
