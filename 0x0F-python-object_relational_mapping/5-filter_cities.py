@@ -19,8 +19,9 @@ if __name__ == '__main__':
     cur = db.cursor()
 
     cur.execute("""
-        SELECT name FROM cities WHERE state_id LIKE (SELECT id FROM states
-        WHERE name LIKE BINARY %s)""", (state_name,))
+    SELECT cities.name FROM cities
+    INNER JOIN states ON cities.state_id = states.id
+    WHERE states.name=%s""", (state_name,))
 
     rows = cur.fetchall()
 
