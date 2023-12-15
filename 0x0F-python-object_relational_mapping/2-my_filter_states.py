@@ -12,9 +12,8 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    query = "SELECT * FROM states WHERE name=%s ORDER BY id"
-
-    cur.execute(query, (search,))
+    cur.execute("SELECT * FROM states WHERE name='{}' ORDER BY id".
+                 format(search))
 
     rows = cur.fetchall()
 
