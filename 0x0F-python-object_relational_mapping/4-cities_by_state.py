@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Makes a query that selects all states and cities"""
+
 
 import MySQLdb
 import sys
