@@ -3,16 +3,26 @@
 import MySQLdb
 import sys
 
-myuser, password, database = sys.argv[1:]
+if __name__ == '__main__':
+    myuser, password, database = sys.argv[1:]
 
-db = MySQLdb.connect(host="localhost", user=myuser,
-                     passwd=password, db=database)
+    db = MySQLdb.connect(
+        host="localhost",
+        user=myuser,
+        passwd=password,
+        db=database
+    )
 
-cur = db.cursor()
+    cur = db.cursor()
 
-cur.execute("SELECT cities.id, cities.name, states.name FROM cities left join states on cities.state_id = states.id order by cities.id")
+    cur.execute("""
+        SELECT cities.id, cities.name, states.name
+        FROM cities
+        LEFT JOIN states ON cities.state_id = states.id
+        ORDER BY cities.id
+    """)
 
-rows = cur.fetchall()
+    rows = cur.fetchall()
 
-for row in rows:
-    print(row)
+    for row in rows:
+        print(row)
