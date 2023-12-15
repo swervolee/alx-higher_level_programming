@@ -1,5 +1,0 @@
-#!/usr/bin/python3
-"""Connects to the table states using sqlalchemy"""
-
-
-from sqlachemy import create_engine, Column, String, Integer
