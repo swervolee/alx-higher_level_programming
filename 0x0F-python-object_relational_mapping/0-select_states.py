@@ -5,16 +5,17 @@
 import MySQLdb
 import sys
 
-myuser, password, database = sys.argv[1:]
+if __name__ = "__main__":
+    myuser, password, database = sys.argv[1:]
 
-db = MySQLdb.connect(host="localhost", port=3306,
-                     user=myuser, passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=myuser, passwd=password, db=database)
 
-cur = db.cursor()
+    cur = db.cursor()
 
-cur.execute("SELECT * FROM states ORDER BY ID")
+    cur.execute("SELECT * FROM states ORDER BY ID")
 
-rows = cur.fetchall()
+    rows = cur.fetchall()
 
-for row in rows:
-    print(row)
+    for row in rows:
+        print(row)
