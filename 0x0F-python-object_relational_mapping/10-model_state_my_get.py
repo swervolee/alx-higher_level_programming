@@ -20,11 +20,9 @@ if __name__ == '__main__':
 
     session = Session()
 
-    result = session.query(State).filter(State.name == search).all()
+    result = session.query(State).filter(State.name == search).one()
 
-    length = len(result)
-
-    if (length):
-        print(length)
+    if result:
+        print(result.id)
     else:
         print('Not found')
