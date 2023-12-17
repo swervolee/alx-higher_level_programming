@@ -20,9 +20,9 @@ if __name__ == '__main__':
 
     session = Session()
 
-    result = session.query(State).filter(State.name == search).one()
+    result = session.query(State).filter(State.name == search).all()
 
     if result:
-        print(result.id)
+        print(result[0].id)
     else:
         print('Not found')
