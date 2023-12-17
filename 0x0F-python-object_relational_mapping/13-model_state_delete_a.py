@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Creates a new state and inserts it into the database"""
-
+"""Selects all states that have the letter 'a'"""
 
 
 import sqlalchemy
@@ -13,7 +12,6 @@ if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
                            format(sys.argv[1], sys.argv[2], sys.argv[
                                3], pool_pre_ping=True))
-    state_name = sys.argv[4]
 
     Base.metadata.create_all(bind=engine)
 
@@ -21,6 +19,8 @@ if __name__ == '__main__':
 
     session = Session()
 
-    new = State(f"{state_name}"})
+    for item in session.query(State).filter(State.name.
+                                            like("%a%")).order_by(State.id):
+        session.delete(item)
 
-    
+    session.commit()
