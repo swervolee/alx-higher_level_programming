@@ -21,4 +21,7 @@ if __name__ == '__main__':
 
     result = session.query(State).filter_by(id=1).first()
 
-    print(result.id, result.name, sep=": ")
+    if result:
+        print(result.id, result.name, sep=": ")
+    else:
+        print('Nothing')
