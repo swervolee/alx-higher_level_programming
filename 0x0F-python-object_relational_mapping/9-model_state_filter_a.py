@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Selects all states that have the letter 'a'"""
 
+
 import sqlalchemy
 from sqlalchemy import create_engine, text
 from model_state import Base, State
@@ -18,7 +19,6 @@ if __name__ == '__main__':
 
     session = Session()
 
-    for item in session.query(State).filter(State.name.like("%a%")).order_by(State.id):
+    for item in session.query(State).filter(State.name.
+                                            like("%a%")).order_by(State.id):
         print(item.id, item.name, sep=": ")
-
-    
