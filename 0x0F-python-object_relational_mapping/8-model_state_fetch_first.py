@@ -19,6 +19,6 @@ if __name__ == '__main__':
 
     session = Session()
 
-    for item in session.query(State).order_by(State.id):
-        print(item.id, item.name, sep=": ")
-        break;
+    result = session.query(State).filter_by(id=1).first()
+
+    print(result.id, result.name, sep=": ")
