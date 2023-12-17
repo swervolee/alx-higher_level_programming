@@ -22,4 +22,4 @@ if __name__ == '__main__':
 
     for st, ct in session.query(State, City).filter(
             State.id == City.state_id).order_by(City.id):
-        print(f'{st.name}: ({ct.id}) {ct.name}')
+        print('{}: ({}) {}'.format(st.name, ct.id, ct.name))
