@@ -2,7 +2,6 @@
 """Creates a new state and inserts it into the database"""
 
 
-
 import sqlalchemy
 from sqlalchemy import create_engine, text
 from model_state import Base, State
