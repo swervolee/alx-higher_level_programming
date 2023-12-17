@@ -14,8 +14,6 @@ if __name__ == '__main__':
                                3], pool_pre_ping=True))
     search = sys.argv[4]
 
-    length = 0
-
     Base.metadata.create_all(bind=engine)
 
     Session = sessionmaker(engine)
@@ -24,4 +22,9 @@ if __name__ == '__main__':
 
     result = session.query(State).filter(State.name == search).all()
 
-    print(len(result))
+    length = len(result)
+
+    if (length):
+        print(length)
+    else:
+        print('Not found')
