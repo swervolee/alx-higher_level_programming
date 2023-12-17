@@ -8,6 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from model_state import Base
 from sqlalchemy import ForeignKey
 
+
 class City(Base):
     """Defines the table city"""
 
