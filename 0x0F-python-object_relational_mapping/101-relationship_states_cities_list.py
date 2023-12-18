@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""PRINTING STATES AND CITIES USING RELATIONSHIP"""
 
 
 import sqlalchemy
