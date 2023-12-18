@@ -7,8 +7,7 @@ from sqlalchemy import create_engine, text
 from relationship_state import Base, State
 import sys
 from relationship_city import City
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import sessionmaker, joinedload
 
 if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
@@ -22,7 +21,8 @@ if __name__ == '__main__':
     session = Session()
 
     for st in session.query(State).filter(
-            State.id == City.state_id).order_by(State.id, City.id):
+            State.id == City.state_id).options(
+                joinedload(State.cities)).order_by(State.id, City.id):
         print(st.id, st.name, sep=': ')
 
         for ct in st.cities:
