@@ -20,8 +20,7 @@ if __name__ == '__main__':
 
     session = Session()
 
-    for st in session.query(State).filter(
-            State.id == City.state_id).order_by(State.id, City.id):
+    for st in session.query(State).order_by(State.id):
         print(st.id, st.name, sep=': ')
 
         for ct in st.cities:
