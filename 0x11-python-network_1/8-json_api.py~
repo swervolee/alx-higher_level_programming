@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+'A search post'
+import requests
+import sys
+
+
+if __name__ == '__main__':
+    try:
+        q = sys.argv[1]
+    except Exception as e:
+        print(e)
