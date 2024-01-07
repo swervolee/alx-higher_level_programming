@@ -17,6 +17,6 @@ if __name__ == '__main__':
             print('No result')
         else:
             try:
-                print(r.json())
+                print(f'[{r.json().get("id")}] {r.json().get("name")}')
             except Exception:
                 print('Not a valid JSON')
