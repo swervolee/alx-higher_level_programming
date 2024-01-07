@@ -6,11 +6,8 @@ from requests.auth import HTTPBasicAuth
 
 
 if __name__ == '__main__':
-    username, password = sys.argv[1: 3]
-    headers = {'Authorization': 'token ' + str(password)}
+    headers = {'Authorization': 'token ' + str(sys.argv[1])}
     url = 'https://api.github.com/user'
-    basic = HTTPBasicAuth(username, password)
-
+    basic = HTTPBasicAuth(sys.argv[1], sys.argv[2])
     r = requests.get(url, auth=basic)
-
     print(r.json().get('id'))
