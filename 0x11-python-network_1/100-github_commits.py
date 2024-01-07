@@ -12,4 +12,4 @@ if __name__ == '__main__':
         print(i.get('commit').get('tree').get('sha') +
               ': ' + i.get('commit').get('author').get('name'))
         if v == 10:
-              break
+            break
