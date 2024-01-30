@@ -1,0 +1,6 @@
+#!/usr/bin/node
+/* FILE READING */
+
+const fs = require("fs");
+
+console.log(process.argv[1])
