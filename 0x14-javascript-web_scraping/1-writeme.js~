@@ -1,0 +1,6 @@
+#!/usr/bin/node
+/* FILE WRITE */
+
+const fs = require("fs");
+
+const { path, data } = process.argv[2:]
